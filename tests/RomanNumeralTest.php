@@ -10,6 +10,10 @@ class RomanNumeralTest extends TestCase
     {
         $class = new \App\IntegerConversion();
 
+        // Test required limits
+        $this->assertNull($class->toRomanNumerals(0));
+        $this->assertNull($class->toRomanNumerals(4000));
+
         // Test the basic conversions
         $toTest = [
             'I' => 1,
