@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::get(
+    '/conversions/convert/{integer}',
+    'ConversionController@convert'
+)->where('integer', '[0-9]+');
+
+Route::get(
+    'conversions/all',
+    'ConversionController@all'
+);
+
+Route::get(
+    'conversions/top-ten',
+    'ConversionController@topTen'
+);
